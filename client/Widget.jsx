@@ -10,7 +10,7 @@ const WidgetBackground = styled.div`
 
 const OverlayWidget = styled.iframe`
   position: absolute;
-  inset: 5vh 5vw auto 5vh;
+  inset: 5vh 10vw auto 10vh;
   border: 1px rgb(136, 136, 136);
   border-radius: 4px;
   width: 90vw;
