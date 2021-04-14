@@ -9,8 +9,6 @@ class App extends React.Component {
       productID: null
     }
 
-    this.frameRef = React.createRef();
-
     this.toggleWidget = this.toggleWidget.bind(this);
     this.closeWidget = this.closeWidget.bind(this);
     this.openWidget = this.openWidget.bind(this);
@@ -19,18 +17,18 @@ class App extends React.Component {
   componentDidMount(){
     let links = document.links;
     for(const link of links){
-
       if(link.href.startsWith('https://gum.co')){
-        link.setAttribute('class', 'gum-widget');
+        link.setAttribute('class', 'gumroad-button');
       }
     }
   }
+
   toggleWidget(){
     this.setState((state) => ({showWidget: !state.showWidget}))
   };
 
   openWidget(event){
-    if(event.target.className === 'gum-widget'){
+    if(event.target.className === 'gumroad-button'){
       event.preventDefault();
       this.toggleWidget();
       document.body.style.position = 'fixed';
@@ -62,7 +60,7 @@ class App extends React.Component {
       <div>
         <a href='https://google.com/' onClick={this.openWidget}>Google</a>
       </div>
-      <Widget show={this.state.showWidget} productID={this.state.productID} close={this.closeWidget} ref={this.frameRef}></Widget>
+      <Widget show={this.state.showWidget} productID={this.state.productID} close={this.closeWidget}></Widget>
       </>
     )
   }
